@@ -21,6 +21,7 @@ struct RemindersCategoryView: View {
                     }
                 Spacer()
                 Text("\(reminderCategory.reminderCount)")
+                    .foregroundStyle(Color.primary)
                     .font(.title)
                     .fontWeight(.semibold)
             }
@@ -28,11 +29,21 @@ struct RemindersCategoryView: View {
                 .font(.headline)
                 .fontWeight(.bold)
         }
+        .foregroundColor(.gray)
         .padding()
-        .background(Color(uiColor: .secondarySystemBackground), in: RoundedRectangle(cornerRadius: 10))
+        .background(
+            in: RoundedRectangle(cornerRadius: 10)
+        )
     }
 }
 
 #Preview {
-    RemindersCategoryView(reminderCategory: ReminderCategory(title: "test", color: Color.red, icon: "plus", reminderCount: 30))
+    RemindersCategoryView(
+        reminderCategory: ReminderCategory(
+            title: "test",
+            color: Color.red,
+            icon: "plus",
+            reminderCount: 30
+        )
+    )
 }

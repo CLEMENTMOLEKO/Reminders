@@ -40,13 +40,23 @@ struct ReminderCategoryDetails: View {
                     DatePicker("Pick a date for notification", selection: $reminderDate)
                         .labelsHidden()
                     Button {
-                        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: reminderDate)
+                        let dateComponents = Calendar.current.dateComponents(
+                            [
+                                .year,
+                                .month,
+                                .day,
+                                .hour,
+                                .minute
+                            ],
+                            from: reminderDate
+                        )
                         var localNotification = LocalNotification(
                             title: "My first SwiftUI Notification",
                             body: "This is my first notification using a notification manaager.",
                             identifier: UUID().uuidString,
                             dateComponents: dateComponents,
-                            notificationRepeat: false)
+                            notificationRepeat: false
+                        )
                         localNotification.bundleImage = "moonwalk.jpeg"
                         localNotification.userInfo = ["screen_type": ScreenType.promo.rawValue]
                         localNotification.noficationType = .calendar
@@ -66,18 +76,33 @@ struct ReminderCategoryDetails: View {
             }
             Spacer()
         }
-        .onChange(of: scenePhase) { oldValue, newValue in
-            if newValue == .active {
+        .onChange(of: scenePhase, perform: { value in
+            if value == .active {
                 Task {
                     await localNotificationManger.getNotificationAuthStatus()
                 }
             }
-        }
+        })
+//        .onChange(of: scenePhase) { oldValue, newValue in
+//            if newValue == .active {
+//                Task {
+//                    await localNotificationManger.getNotificationAuthStatus()
+//                }
+//            }
+//        }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle(reminderCategory.title)
     }
 }
 
 #Preview {
-    ReminderCategoryDetails(reminderCategory: .init(title: "Test", color: Color.red, icon: "star", reminderCount: 5))
+    ReminderCategoryDetails(
+        reminderCategory: .init(
+            title: "Test",
+            color: Color.red,
+            icon: "star",
+            reminderCount: 5
+        )
+    )
+    .environmentObject(LocalNotificationManager())
 }
