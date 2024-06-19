@@ -10,7 +10,7 @@ import SwiftUI
 
 class HomeViewModel: ObservableObject {
     @Published var homeSearchValue: String = ""
-    @Published var reminderCategories: [ReminderCategory] = [
+    @Published var reminderCategories = [
         ReminderCategory(
             title: "Today",
             color: Color.blue,

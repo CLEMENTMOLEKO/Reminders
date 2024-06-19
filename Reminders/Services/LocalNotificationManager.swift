@@ -67,15 +67,29 @@ final class LocalNotificationManager: NSObject, ObservableObject {
         
         if localNotification.noficationType == .time {
             guard let timeInterval = localNotification.timeInterval else { return }
-            let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: localNotification.notificationRepeat)
+            let notificationTrigger = UNTimeIntervalNotificationTrigger(
+                timeInterval: timeInterval,
+                repeats: localNotification.notificationRepeat
+            )
             
-            let notificationRequest = UNNotificationRequest(identifier: localNotification.identifier, content: notificationContent, trigger: notificationTrigger)
+            let notificationRequest = UNNotificationRequest(
+                identifier: localNotification.identifier,
+                content: notificationContent,
+                trigger: notificationTrigger
+            )
             notificationCenter.add(notificationRequest)
         } else {
             guard let dateComponents = localNotification.dateComponents else { return }
-            let notificationTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: localNotification.notificationRepeat)
+            let notificationTrigger = UNCalendarNotificationTrigger(
+                dateMatching: dateComponents,
+                repeats: localNotification.notificationRepeat
+            )
             
-            let notificationRequest = UNNotificationRequest(identifier: localNotification.identifier, content: notificationContent, trigger: notificationTrigger)
+            let notificationRequest = UNNotificationRequest(
+                identifier: localNotification.identifier,
+                content: notificationContent,
+                trigger: notificationTrigger
+            )
             notificationCenter.add(notificationRequest)
         }
     }

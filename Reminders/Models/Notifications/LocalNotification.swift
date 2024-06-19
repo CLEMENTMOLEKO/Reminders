@@ -10,7 +10,13 @@ import Foundation
 /// LocalNotification is used to schecdule notification in LocationManager
 ///  It enables two types of notification, calendar notifications and time interval notification.
 struct LocalNotification {
-    internal init(title: String, body: String, identifier: String, dateComponents: DateComponents, notificationRepeat: Bool) {
+    internal init(
+        title: String,
+        body: String,
+        identifier: String,
+        dateComponents: DateComponents,
+        notificationRepeat: Bool
+    ) {
         self.title = title
         self.body = body
         self.identifier = identifier
@@ -20,7 +26,13 @@ struct LocalNotification {
         self.notificationRepeat = notificationRepeat
     }
     
-    internal init(title: String, body: String, identifier: String, timeInterval: Double, notificationRepeat: Bool) {
+    internal init(
+        title: String,
+        body: String,
+        identifier: String,
+        timeInterval: Double,
+        notificationRepeat: Bool
+    ) {
         self.title = title
         self.body = body
         self.identifier = identifier

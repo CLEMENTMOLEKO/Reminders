@@ -6,15 +6,21 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct RemindersApp: App {
+    @StateObject var navigationManager: NavigationManager = .init()
     @StateObject var localNotificationManager: LocalNotificationManager = .init()
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
-                .environmentObject(localNotificationManager)
+            NavigationStack(path: $navigationManager.navigationRoutes) {
+                HomeView()
+                    .navigationDestination(for: NavigationValues.self) { $0 }
+            }
+            .environmentObject(navigationManager)
+            .environmentObject(localNotificationManager)
         }
     }
 }

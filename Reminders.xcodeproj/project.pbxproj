@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		282BBAC22BAF1F380091B827 /* RemindersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282BBAC12BAF1F380091B827 /* RemindersApp.swift */; };
-		282BBAC42BAF1F380091B827 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282BBAC32BAF1F380091B827 /* HomeView.swift */; };
 		282BBAC62BAF1F390091B827 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282BBAC52BAF1F390091B827 /* Assets.xcassets */; };
 		282BBAC92BAF1F390091B827 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282BBAC82BAF1F390091B827 /* Preview Assets.xcassets */; };
 		282BBAD22BAF22210091B827 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282BBAD12BAF22210091B827 /* HomeViewModel.swift */; };
@@ -19,12 +18,17 @@
 		283D709B2BD38E52000B49E7 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283D709A2BD38E52000B49E7 /* LocalNotification.swift */; };
 		283D709D2BD4E09D000B49E7 /* moonwalk.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 283D709C2BD4E09D000B49E7 /* moonwalk.jpeg */; };
 		283D70A02BD4E456000B49E7 /* NextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283D709F2BD4E456000B49E7 /* NextView.swift */; };
+		286D5FF42C20B29900448187 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D5FF32C20B29900448187 /* HomeView.swift */; };
+		286D5FF72C20BC2800448187 /* NavigationValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D5FF62C20BC2800448187 /* NavigationValues.swift */; };
+		286D5FF92C20BCA700448187 /* ReminderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D5FF82C20BCA700448187 /* ReminderList.swift */; };
+		286D5FFD2C20C0D000448187 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D5FFC2C20C0D000448187 /* View+.swift */; };
+		286D5FFF2C20C26300448187 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D5FFE2C20C26300448187 /* NavigationManager.swift */; };
+		286D60022C2356CF00448187 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D60012C2356CF00448187 /* CategoriesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		282BBABE2BAF1F380091B827 /* Reminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reminders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		282BBAC12BAF1F380091B827 /* RemindersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersApp.swift; sourceTree = "<group>"; };
-		282BBAC32BAF1F380091B827 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		282BBAC52BAF1F390091B827 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		282BBAC82BAF1F390091B827 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		282BBAD12BAF22210091B827 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -35,6 +39,12 @@
 		283D709A2BD38E52000B49E7 /* LocalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 		283D709C2BD4E09D000B49E7 /* moonwalk.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moonwalk.jpeg; sourceTree = "<group>"; };
 		283D709F2BD4E456000B49E7 /* NextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextView.swift; sourceTree = "<group>"; };
+		286D5FF32C20B29900448187 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		286D5FF62C20BC2800448187 /* NavigationValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationValues.swift; sourceTree = "<group>"; };
+		286D5FF82C20BCA700448187 /* ReminderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderList.swift; sourceTree = "<group>"; };
+		286D5FFC2C20C0D000448187 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		286D5FFE2C20C26300448187 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		286D60012C2356CF00448187 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +78,7 @@
 		282BBAC02BAF1F380091B827 /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
+				286D5FF52C20BBFD00448187 /* Navigation */,
 				283D709E2BD4E434000B49E7 /* Common */,
 				283D70942BD384D0000B49E7 /* Services */,
 				282BBAD32BAF225D0091B827 /* Models */,
@@ -92,8 +103,9 @@
 			isa = PBXGroup;
 			children = (
 				283699292BAF25B400C95F04 /* Components */,
-				282BBAC32BAF1F380091B827 /* HomeView.swift */,
-				283D70972BD38840000B49E7 /* ReminderCategoryDetails.swift */,
+				286D5FEF2C209E3800448187 /* Details */,
+				286D5FEE2C209E1B00448187 /* Home */,
+				286D5FFC2C20C0D000448187 /* View+.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -101,7 +113,7 @@
 		282BBAD02BAF220B0091B827 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				282BBAD12BAF22210091B827 /* HomeViewModel.swift */,
+				286D5FF02C209E6700448187 /* Home */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -111,6 +123,7 @@
 			children = (
 				283D70992BD38E28000B49E7 /* Notifications */,
 				2836992C2BAF285200C95F04 /* ReminderCategory.swift */,
+				286D5FF82C20BCA700448187 /* ReminderList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -127,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				283D70952BD384FA000B49E7 /* LocalNotificationManager.swift */,
+				286D5FFE2C20C26300448187 /* NavigationManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -145,6 +159,47 @@
 				283D709F2BD4E456000B49E7 /* NextView.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		286D5FEE2C209E1B00448187 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				286D60002C2356B500448187 /* Components */,
+				286D5FF32C20B29900448187 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		286D5FEF2C209E3800448187 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				283D70972BD38840000B49E7 /* ReminderCategoryDetails.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		286D5FF02C209E6700448187 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				282BBAD12BAF22210091B827 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		286D5FF52C20BBFD00448187 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				286D5FF62C20BC2800448187 /* NavigationValues.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		286D60002C2356B500448187 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				286D60012C2356CF00448187 /* CategoriesView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,7 +229,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					282BBABD2BAF1F380091B827 = {
@@ -220,12 +275,17 @@
 			files = (
 				283D70962BD384FA000B49E7 /* LocalNotificationManager.swift in Sources */,
 				283D70A02BD4E456000B49E7 /* NextView.swift in Sources */,
-				282BBAC42BAF1F380091B827 /* HomeView.swift in Sources */,
+				286D5FF42C20B29900448187 /* HomeView.swift in Sources */,
 				283D70982BD38840000B49E7 /* ReminderCategoryDetails.swift in Sources */,
+				286D5FFD2C20C0D000448187 /* View+.swift in Sources */,
+				286D5FF92C20BCA700448187 /* ReminderList.swift in Sources */,
+				286D5FF72C20BC2800448187 /* NavigationValues.swift in Sources */,
 				2836992B2BAF25D400C95F04 /* RemindersCategoryView.swift in Sources */,
+				286D60022C2356CF00448187 /* CategoriesView.swift in Sources */,
 				283D709B2BD38E52000B49E7 /* LocalNotification.swift in Sources */,
 				2836992D2BAF285200C95F04 /* ReminderCategory.swift in Sources */,
 				282BBAD22BAF22210091B827 /* HomeViewModel.swift in Sources */,
+				286D5FFF2C20C26300448187 /* NavigationManager.swift in Sources */,
 				282BBAC22BAF1F380091B827 /* RemindersApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,6 +427,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -395,6 +456,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

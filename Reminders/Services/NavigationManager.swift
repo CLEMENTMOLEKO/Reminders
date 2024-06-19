@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+@MainActor
+class NavigationManager: ObservableObject {
+    @Published var navigationRoutes = [NavigationValues]()
+    
+    func navigate(to screen: NavigationValues) {
+        navigationRoutes.append(screen)
+    }
+}

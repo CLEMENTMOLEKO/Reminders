@@ -7,9 +7,26 @@
 
 import SwiftUI
 
-enum NavigationValues : Hashable, View {
+enum NavigationValues : Hashable, View, Identifiable {
     case category(category: ReminderCategory)
     case lists(list: ReminderList)
+    
+    var id: Self { self }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: NavigationValues, rhs: NavigationValues) -> Bool {
+        switch (lhs, rhs) {
+        case (.category(let lhsCategory), .category(let rhsCategory)):
+            return lhsCategory.id == rhsCategory.id
+        case (.lists(let lhsList), .lists(let rhsList)):
+            return lhsList.id == rhsList.id
+        default:
+            return false
+        }
+    }
     
     var body: some View {
         switch self {
