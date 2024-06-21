@@ -92,4 +92,5 @@ private extension HomeView {
             .environmentObject(NavigationManager())
             .environmentObject(LocalNotificationManager())
     }
+    //.preferredColorScheme(.dark)
 }

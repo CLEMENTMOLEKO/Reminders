@@ -19,7 +19,7 @@ struct MyListItem: View {
                     .foregroundColor(list.color)
                     .overlay {
                         Image(systemName: list.icon)
-                            .foregroundColor(Color(uiColor: .systemBackground))
+                            .foregroundColor(.white)
                     }
         }
         .frame(maxWidth: .infinity, alignment: .leading)

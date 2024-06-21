@@ -35,6 +35,7 @@ struct RemindersCategoryView: View {
         .foregroundColor(.gray)
         .padding()
         .background(
+            Color(uiColor: .tertiarySystemBackground),
             in: RoundedRectangle(cornerRadius: 10)
         )
     }
