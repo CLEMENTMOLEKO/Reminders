@@ -14,7 +14,7 @@ struct RemindersCategoryView: View {
             HStack {
                 Circle()
                     .fill(reminderCategory.color)
-                    .frame(width: 30)
+                    .frame(width: 35)
                     .overlay {
                         Image(systemName: reminderCategory.icon)
                             .foregroundColor(.white)

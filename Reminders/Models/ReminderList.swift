@@ -12,10 +12,12 @@ class ReminderList : Hashable, Identifiable {
     let id = UUID()
     var name: String
     var color: Color
+    var icon: String
     
-    internal init(name: String, color: Color) {
+    internal init(name: String, color: Color, icon: String) {
         self.name = name
         self.color = color
+        self.icon = icon
     }
     
     static func == (lhs: ReminderList, rhs: ReminderList) -> Bool {

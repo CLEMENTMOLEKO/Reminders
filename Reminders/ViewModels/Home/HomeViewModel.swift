@@ -10,7 +10,10 @@ import SwiftUI
 
 class HomeViewModel: ObservableObject {
     @Published var homeSearchValue: String = ""
-    @Published var reminderCategories = [
+    
+    
+    //MARK: Dummy Data, will delete once integrated swiftdata. or save in preview content.
+    let reminderCategories = [
         ReminderCategory(
             title: "Today",
             color: Color.blue,
@@ -42,5 +45,11 @@ class HomeViewModel: ObservableObject {
             reminderCount: 0
         )
     ]
-    
+   
+    let reminderlists = [
+        ReminderList(name: "Reminder", color: Color.blue, icon: "star.fill"),
+        ReminderList(name: "Test", color: Color.green, icon: "star.fill"),
+        ReminderList(name: "Todos", color: Color.orange, icon: "star.fill"),
+        ReminderList(name: "Other", color: Color.purple, icon: "star.fill")
+    ]
 }

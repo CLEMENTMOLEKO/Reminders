@@ -52,11 +52,16 @@ private extension HomeView {
     
     private var lists: some View {
         Section {
-            ForEach(1..<5) { _ in
-                Text("Test")
+            ForEach(homeViewModel.reminderlists) { reminderList in
+                NavigationLink(value: NavigationValues.lists(list: reminderList)){
+                    MyListItem(list: reminderList)
+                        .padding(1)
+                        .badge(1)
+                }
             }
         } header: {
             Text("My List")
+                .font(.title2)
                 .fontWeight(.bold)
         }
         .headerProminence(.increased)
