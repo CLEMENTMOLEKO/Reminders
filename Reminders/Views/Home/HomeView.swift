@@ -23,12 +23,9 @@ struct HomeView: View {
         .searchable(text: .constant(""))
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    //TODO: this is actually a menu...
-                } label: {
-                    Image(systemName: "ellipsis.circle")
-                }
-            }
+                Button("Edit") {
+                    //TODO: This will set the list in editing mode...
+                }            }
             ToolbarItem(placement: .bottomBar) {
                 insets
             }
