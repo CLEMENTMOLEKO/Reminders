@@ -15,10 +15,11 @@ struct RemindersApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationStack(path: $navigationManager.navigationRoutes) {
-                HomeView()
-                    .navigationDestination(for: NavigationValues.self) { $0 }
-            }
+            HomeView()
+                .navigationStackWithDestination(
+                    for: NavigationValues.self,
+                    path: $navigationManager.navigationRoutes
+                )
             .environmentObject(navigationManager)
             .environmentObject(localNotificationManager)
         }

@@ -7,11 +7,14 @@
 
 import SwiftUI
 
-//extension View {
-//    static func navigationRootStack<T>(for value: T.self) where T: View , (Hashable) -> some View {
-//        NavigationStack {
-//            Self
-//            .navigationDestination(for: value) { $0 }
-//        }
-//    }
-//}
+extension View {
+    func navigationStackWithDestination<T>(
+        for value: T.Type,
+        path: Binding<NavigationPath>
+    ) -> some View  where T : Hashable & View {
+        NavigationStack(path: path){
+            self
+                .navigationDestination(for: value) { $0 }
+        }
+    }
+}
