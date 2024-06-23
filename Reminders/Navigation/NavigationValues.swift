@@ -32,7 +32,7 @@ enum NavigationValues : Hashable, View, Identifiable {
         switch self {
         case .category(let category):
             //TODO: category should be a protocol since different categories will have different screens.
-            Text(category.title)
+            Text(category.name)
         case .lists(let list):
             Text(list.name)
         }

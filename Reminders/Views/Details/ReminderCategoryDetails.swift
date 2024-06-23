@@ -91,7 +91,7 @@ struct ReminderCategoryDetails: View {
 //            }
 //        }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle(reminderCategory.title)
+        .navigationTitle(reminderCategory.name)
     }
 }
 

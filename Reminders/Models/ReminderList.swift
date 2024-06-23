@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class ReminderList : Hashable, Identifiable {
+class ReminderList : Hashable, Identifiable, ListItem {
     let id = UUID()
     var name: String
     var color: Color

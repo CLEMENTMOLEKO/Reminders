@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Environment(\.editMode) private var editMode
     @EnvironmentObject var localNotificationManager: LocalNotificationManager
     
+    @State var selectionItems = Set<ReminderCategory.ID>()
+    
+    var isEditing: Bool {
+        editMode?.wrappedValue.isEditing == true
+    }
     let homeViewModel: HomeViewModel = .init()
     
     var body: some View {
-        List {
+        List(selection: $selectionItems) {
             categories
             lists
         }
@@ -23,9 +29,8 @@ struct HomeView: View {
         .searchable(text: .constant(""))
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button("Edit") {
-                    //TODO: This will set the list in editing mode...
-                }            }
+                EditButton()
+            }
             ToolbarItem(placement: .bottomBar) {
                 insets
             }
@@ -40,22 +45,45 @@ struct HomeView: View {
 private extension HomeView {
     private var categories: some View {
         Section {
-            CategoriesView(categories: homeViewModel.reminderCategories)
+            if(isEditing){
+                ForEach(homeViewModel.reminderCategories){ reminderCategory in
+                    ListRowItem(item: reminderCategory)
+                        .padding(1)
+                }
+                .onMove { indices, newOffset in
+                    print("Moving \(indices), \(newOffset)")
+                }
+            } else {
+                CategoriesView(categories: homeViewModel.reminderCategories)
+            }
         }
-        .listRowInsets(.init())
-        .listRowSpacing(8.0)
-        .listRowBackground(Color.clear)
+        .listRowInsets(isEditing ? nil : .init())
+        .listRowSpacing(isEditing ? nil : 8.0)
+        .listRowBackground(isEditing ? nil : Color.clear)
     }
     
     private var lists: some View {
         Section {
             ForEach(homeViewModel.reminderlists) { reminderList in
-                NavigationLink(value: NavigationValues.lists(list: reminderList)){
-                    MyListItem(list: reminderList)
-                        .padding(1)
-                        .badge(1)
+                //TODO: create a view modifier to do this efficiently...
+                if(!isEditing) {
+                    NavigationLink(value: NavigationValues.lists(list: reminderList)){
+                        ListRowItem(item: reminderList)
+                            .padding(1)
+                            .badge(1)
+                    }
+                } else {
+                    ListRowItem(item: reminderList)
+                            .padding(1)
+                            .badge(1)
                 }
             }
+            .onMove{ indices, newOffset in
+                print("Moved indeces: \(indices), newOffset: \(newOffset)")
+            }
+            .onDelete(perform: { indexSet in
+                print("deleting \(indexSet.first ?? 1)")
+            })
         } header: {
             Text("My List")
                 .font(.title2)
@@ -76,6 +104,7 @@ private extension HomeView {
                 }
                 .font(.headline)
             }
+            .disabled(isEditing)
             Spacer()
             Button("Add List") {
                 

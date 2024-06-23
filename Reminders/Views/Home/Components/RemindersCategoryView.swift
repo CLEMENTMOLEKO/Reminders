@@ -28,7 +28,7 @@ struct RemindersCategoryView: View {
                     .font(.title)
                     .fontWeight(.semibold)
             }
-            Text(reminderCategory.title)
+            Text(reminderCategory.name)
                 .font(.headline)
                 .fontWeight(.bold)
         }

@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-class ReminderCategory: Identifiable, Hashable {
+class ReminderCategory: Identifiable, Hashable, ListItem {
     internal init(
         title: String,
         color: Color,
         icon: String,
         reminderCount: Int
     ) {
-        self.title = title
+        self.name = title
         self.color = color
         self.icon = icon
         self.reminderCount = reminderCount
@@ -30,7 +30,7 @@ class ReminderCategory: Identifiable, Hashable {
     }
     
     let id = UUID().uuidString
-    let title: String
+    let name: String
     let color: Color
     let icon: String
     let reminderCount: Int
