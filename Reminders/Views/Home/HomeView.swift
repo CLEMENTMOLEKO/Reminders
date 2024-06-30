@@ -14,7 +14,7 @@ struct HomeView: View {
     @State var selectionItems = Set<ReminderCategory.ID>()
     
     var isEditing: Bool {
-        editMode?.wrappedValue.isEditing == true
+        editMode?.wrappedValue == .active
     }
     let homeViewModel: HomeViewModel = .init()
     
@@ -32,7 +32,7 @@ struct HomeView: View {
                 EditButton()
             }
             ToolbarItem(placement: .bottomBar) {
-                insets
+                BottomBar()
             }
         }
         .task {
@@ -91,26 +91,6 @@ private extension HomeView {
         }
         .headerProminence(.increased)
         .listStyle(.grouped)
-    }
-    
-    private var insets: some View {
-        HStack {
-            Button {
-                
-            } label: {
-                HStack {
-                    Image(systemName: "plus.circle.fill")
-                    Text("New Reminder")
-                }
-                .font(.headline)
-            }
-            .disabled(isEditing)
-            Spacer()
-            Button("Add List") {
-                
-            }
-            .font(.headline)
-        }
     }
 }
 

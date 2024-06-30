@@ -25,12 +25,6 @@ struct CategoriesView: View {
                         navigationManager.navigate(to: NavigationValues.category(category: reminderCategory))
                     }
             }
-            .onMove{ indices, newOffset in
-                print("Moved indeces: \(indices), newOffset: \(newOffset)")
-            }
-            .onDelete(perform: { indexSet in
-                print("deleting \(indexSet.first ?? 1)")
-            })
         }
     }
 }

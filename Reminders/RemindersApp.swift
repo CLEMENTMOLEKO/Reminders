@@ -20,8 +20,8 @@ struct RemindersApp: App {
                     for: NavigationValues.self,
                     path: $navigationManager.navigationRoutes
                 )
-            .environmentObject(navigationManager)
-            .environmentObject(localNotificationManager)
+                .environmentObject(navigationManager)
+                .environmentObject(localNotificationManager)
         }
     }
 }
