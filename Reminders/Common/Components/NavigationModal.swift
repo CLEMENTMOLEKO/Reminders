@@ -31,6 +31,8 @@ import SwiftUI
 ///                    Text("New Reminder")
 ///                }
 ///                .font(.headline)
+///            } onDismiss: {
+///                didDismiss()
 ///            }
 ///         }
 ///
