@@ -41,7 +41,9 @@ struct BottomBar: View {
                 Text("Add List")
             }
             .sheet(isPresented: $isNewListModalPresented){
-                Text("Add List Sheet")
+                NavigationStack {
+                    NewListView()
+                }
             }
         }
     }
