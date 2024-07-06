@@ -19,33 +19,12 @@ struct NewListView: View {
     
     @State private var selectedSegment: Segment = .newList
     @State var listName = ""
+    @State var newListType: ListType = .standard
     
     var body: some View {
         List {
-            Section {
-                VStack {
-                    Circle()
-                        .fill(.blue.opacity(0.8)) //TODO: this will be a random color.
-                        .frame(width: 85)
-                        .overlay {
-                            Image(systemName: "list.bullet")
-                                .font(.largeTitle)
-                                .fontWeight(.bold)
-                                .foregroundStyle(.white)
-                        }
-                    
-                    TextField(text: $listName) {
-                        Text("List Name")
-                            .font(.system(size: 20, design: .rounded))
-                            .fontWeight(.bold)
-                    }
-                    .padding()
-                    .background(alignment: .center) {
-                        RoundedRectangle(cornerRadius: 15)
-                            .fill(Color(uiColor: .systemFill))
-                    }
-                }
-            }
+            listNameSection
+            listTypeSection
         }
         .navigationTitle("New List")
         .navigationBarTitleDisplayMode(.inline)
@@ -75,6 +54,68 @@ struct NewListView: View {
                 .disabled(true)
             }
         }
+    }
+}
+
+//MARK: Components
+extension NewListView {
+    private var listNameSection: some View {
+        Section {
+            VStack {
+                Circle()
+                    .fill(.blue.opacity(0.8)) //TODO: this will be a random color.
+                    .frame(width: 85)
+                    .overlay {
+                        Image(systemName: "list.bullet")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .foregroundStyle(.white)
+                    }
+                
+                TextField(text: $listName) {
+                    Text("List Name")
+                        .font(.system(size: 20, design: .rounded))
+                        .fontWeight(.bold)
+                }
+                .padding()
+                .background(alignment: .center) {
+                    RoundedRectangle(cornerRadius: 15)
+                        .fill(Color(uiColor: .systemFill))
+                }
+            }
+        }
+    }
+    
+    private var listTypeSection: some View {
+        Section {
+            Picker(selection: $newListType) {
+                ForEach(ListType.allCases) { listType in
+                    Text("\(listType.rawValue)")
+                        .tag(listType)
+                }
+            } label: {
+                Label {
+                    Text("List Type")
+                } icon: {
+                    Image(systemName: "list.bullet")
+                        .foregroundStyle(.white)
+                        .padding(.horizontal,3)
+                        .padding(.vertical, 6)
+                        .background(.blue, in: RoundedRectangle(cornerRadius: 5))
+                }
+            }
+        }
+    }
+}
+
+//MARK: Enums
+extension NewListView {
+    enum ListType: String, Identifiable, CaseIterable {
+        case standard = "Standard"
+        case shopping = "Shopping"
+        case smartList = "Smart List"
+    
+        var id: Self { self }
     }
 }
 
