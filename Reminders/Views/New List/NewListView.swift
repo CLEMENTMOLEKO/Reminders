@@ -20,11 +20,13 @@ struct NewListView: View {
     @State private var selectedSegment: Segment = .newList
     @State var listName = ""
     @State var newListType: ListType = .standard
+    @State var color: Color = .blue
     
     var body: some View {
         List {
             listNameSection
             listTypeSection
+            colorPickerList
         }
         .navigationTitle("New List")
         .navigationBarTitleDisplayMode(.inline)
@@ -63,7 +65,7 @@ extension NewListView {
         Section {
             VStack {
                 Circle()
-                    .fill(.blue.opacity(0.8)) //TODO: this will be a random color.
+                    .fill(color.opacity(0.8)) //TODO: this will be a random color.
                     .frame(width: 85)
                     .overlay {
                         Image(systemName: "list.bullet")
@@ -101,10 +103,14 @@ extension NewListView {
                         .foregroundStyle(.white)
                         .padding(.horizontal,3)
                         .padding(.vertical, 6)
-                        .background(.blue, in: RoundedRectangle(cornerRadius: 5))
+                        .background(color, in: RoundedRectangle(cornerRadius: 5))
                 }
             }
         }
+    }
+    
+    private var colorPickerList: some View {
+        ColorPicker("List Icon Color", selection: $color)
     }
 }
 
