@@ -20,9 +20,7 @@ struct BottomBar: View {
                 path: $navigationManager.newReminderNavigationRoutes,
                 isPresented: $isNewReminderModalPresented
             ) {
-                NavigationLink(value: NewReminderNavigationValues.details){
-                    Text("Test New Reminder Navigation")
-                }
+               NewReminderView()
             } action: {
                 isNewReminderModalPresented.toggle()
             } label: {

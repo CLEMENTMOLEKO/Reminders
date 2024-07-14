@@ -10,13 +10,6 @@ import SwiftUI
 struct NewListView: View {
     @Environment(\.dismiss) var dismiss
     
-    enum Segment: String, CaseIterable, Identifiable {
-        case newList = "New List"
-        case templates = "Templates"
-        
-        var id: String { self.rawValue }
-    }
-    
     @State private var selectedSegment: Segment = .newList
     @State var listName = ""
     @State var newListType: ListType = .standard
@@ -37,16 +30,15 @@ struct NewListView: View {
                 }
             }
             
-//            ToolbarItem(placement: .principal) {
-//                Picker("Select a segment", selection: $selectedSegment) {
-//                    ForEach(Segment.allCases) { segment in
-//                        Text(segment.rawValue).tag(segment)
-//                    }
-//                }
-//                .pickerStyle(SegmentedPickerStyle())
-//                .padding()
-//
-//            }
+            ToolbarItem(placement: .bottomBar) {
+                Picker("Select a segment", selection: $selectedSegment) {
+                    ForEach(Segment.allCases) { segment in
+                        Text(segment.rawValue).tag(segment)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding()
+            }
             
             ToolbarItem(placement: .confirmationAction) {
                 Button("Done") {
@@ -122,6 +114,13 @@ extension NewListView {
         case smartList = "Smart List"
     
         var id: Self { self }
+    }
+    
+    enum Segment: String, CaseIterable, Identifiable {
+        case newList = "New List"
+        case templates = "Templates"
+        
+        var id: String { self.rawValue }
     }
 }
 

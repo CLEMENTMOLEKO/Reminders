@@ -9,6 +9,7 @@ import SwiftUI
 
 enum NewReminderNavigationValues: View, Hashable, Identifiable {
     case details
+    //case listType
     
     var id: Self { self }
     
@@ -20,6 +21,8 @@ enum NewReminderNavigationValues: View, Hashable, Identifiable {
         switch (lhs, rhs) {
         case (.details, .details):
             return true
+//        case (.listType, .listType)
+//            return true
 //        default:
 //            return false
         }
@@ -29,6 +32,8 @@ enum NewReminderNavigationValues: View, Hashable, Identifiable {
         switch self {
         case .details:
             Text("Details Screen")
+//        case .listType:
+//            Text("List Type")
         }
     }
 }
