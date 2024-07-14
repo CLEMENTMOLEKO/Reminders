@@ -26,9 +26,6 @@ struct NewReminderView: View {
             }
             
             Section {
-//                NavigationLink(value: NewReminderNavigationValues.){
-//                    ListRowItem(item: ListSelectionItem(name: "List", color: .orange, icon: "list.bullets"))
-//                }
                 Picker(selection: $viewModel.listType) {
                     ForEach(viewModel.reminderlists, id: \.name) { item in
                         Text(item.name)
@@ -65,12 +62,6 @@ struct NewReminderView: View {
             }
         }
     }
-}
-
-struct ListSelectionItem: ListItem {
-    var name: String
-    var color: Color
-    var icon: String
 }
 
 #Preview {
