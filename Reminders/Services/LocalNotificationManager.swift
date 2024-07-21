@@ -12,7 +12,7 @@ final class LocalNotificationManager: NSObject, ObservableObject {
     let notificationCenter = UNUserNotificationCenter.current();
     
     @Published var isGranted = false;
-    @Published var nextView: ScreenType?
+    @Published var notificationsView: ScreenType?
     
     override init() {
         super.init()
@@ -104,7 +104,7 @@ extension LocalNotificationManager: UNUserNotificationCenterDelegate {
     @MainActor
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
         if let value = response.notification.request.content.userInfo["screen_type"] as? String {
-            self.nextView = ScreenType(rawValue: value)
+            self.notificationsView = ScreenType(rawValue: value)
         }
     }
 }

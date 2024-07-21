@@ -10,7 +10,9 @@ import SwiftUI
 
 class HomeViewModel: ObservableObject {
     @Published var homeSearchValue: String = ""
-    
+    @Published var homeNavigationSheetValues: HomeNavigationSheeValues? = nil
+    @Published var selectionItems = Set<ReminderCategory.ID>()
+
     
     //MARK: Dummy Data, will delete once integrated swiftdata. or save in preview content.
     let reminderCategories = [

@@ -10,29 +10,50 @@ import SwiftUI
 struct HomeView: View {
     @Environment(\.editMode) private var editMode
     @EnvironmentObject var localNotificationManager: LocalNotificationManager
+    @StateObject var homeViewModel: HomeViewModel = .init()
     
-    @State var selectionItems = Set<ReminderCategory.ID>()
     
     var isEditing: Bool {
         editMode?.wrappedValue == .active
     }
-    let homeViewModel: HomeViewModel = .init()
     
     var body: some View {
-        List(selection: $selectionItems) {
+        List(selection: $homeViewModel.selectionItems) {
             categories
             lists
         }
-        .sheet(item: $localNotificationManager.nextView) { nextView in
-            nextView
-        }
+        .sheet(item: $homeViewModel.homeNavigationSheetValues){$0}
         .searchable(text: .constant(""))
         .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                EditButton()
+            ToolbarItemGroup(placement: isEditing ? .primaryAction : .secondaryAction) {
+                Button {
+                    withAnimation() {
+                       if editMode?.wrappedValue == .active {
+                           editMode?.wrappedValue = .inactive
+                       } else {
+                           editMode?.wrappedValue = .active
+                       }
+                    }
+                } label : {
+                    if isEditing {
+                       Text("Done")
+                    } else {
+                       LabeledContent("Edit Lists") {
+                           Image(systemName: "pencil")
+                       }
+                    }
+                }
+                
+                Group {
+                    if !isEditing {
+                        Button("Templates") {
+                            homeViewModel.homeNavigationSheetValues = .templates
+                        }
+                    }
+                }
             }
             ToolbarItem(placement: .bottomBar) {
-                BottomBar()
+                BottomBar(homeNavigationValue: $homeViewModel.homeNavigationSheetValues)
             }
         }
         .task {
@@ -95,11 +116,10 @@ private extension HomeView {
 }
 
 #Preview {
-    NavigationStack {
-        HomeView()
-            .navigationDestination(for: NavigationValues.self, destination: { $0 })
-            .environmentObject(NavigationManager())
-            .environmentObject(LocalNotificationManager())
-    }
+    let navigationManager = NavigationManager()
+    return HomeView()
+        //.navigationStackWithDestination(for: NavigationValues.self, path: $navigationManager.navigationRoutes)
+        .environmentObject(navigationManager)
+        .environmentObject(LocalNotificationManager())
     //.preferredColorScheme(.dark)
 }

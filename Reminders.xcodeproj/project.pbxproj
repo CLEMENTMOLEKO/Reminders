@@ -31,6 +31,7 @@
 		28D5F8952C317E9200294939 /* NavigationModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D5F8942C317E9200294939 /* NavigationModal.swift */; };
 		28D5F8992C3191CC00294939 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D5F8982C3191CC00294939 /* BottomBar.swift */; };
 		28D5F89D2C31966000294939 /* NewReminderNavigationValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D5F89C2C31966000294939 /* NewReminderNavigationValues.swift */; };
+		28EA81302C4D5C5B00E9CE25 /* HomeNavigationSheetValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EA812F2C4D5C5B00E9CE25 /* HomeNavigationSheetValues.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		28D5F8942C317E9200294939 /* NavigationModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModal.swift; sourceTree = "<group>"; };
 		28D5F8982C3191CC00294939 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		28D5F89C2C31966000294939 /* NewReminderNavigationValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReminderNavigationValues.swift; sourceTree = "<group>"; };
+		28EA812F2C4D5C5B00E9CE25 /* HomeNavigationSheetValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationSheetValues.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 			children = (
 				286D5FF62C20BC2800448187 /* NavigationValues.swift */,
 				28D5F89C2C31966000294939 /* NewReminderNavigationValues.swift */,
+				28EA812F2C4D5C5B00E9CE25 /* HomeNavigationSheetValues.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			files = (
 				283D70962BD384FA000B49E7 /* LocalNotificationManager.swift in Sources */,
 				283D70A02BD4E456000B49E7 /* NextView.swift in Sources */,
+				28EA81302C4D5C5B00E9CE25 /* HomeNavigationSheetValues.swift in Sources */,
 				28D5F8992C3191CC00294939 /* BottomBar.swift in Sources */,
 				286D5FF42C20B29900448187 /* HomeView.swift in Sources */,
 				283D70982BD38840000B49E7 /* ReminderCategoryDetails.swift in Sources */,

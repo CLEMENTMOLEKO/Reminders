@@ -20,6 +20,9 @@ struct RemindersApp: App {
                     for: NavigationValues.self,
                     path: $navigationManager.navigationRoutes
                 )
+                .sheet(item: $localNotificationManager.notificationsView) { nextView in
+                    nextView
+                }
                 .environmentObject(navigationManager)
                 .environmentObject(localNotificationManager)
         }

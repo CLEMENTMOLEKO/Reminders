@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BottomBar: View {
     @EnvironmentObject var navigationManager: NavigationManager
+    @Binding var homeNavigationValue: HomeNavigationSheeValues?
     
     @State var isNewReminderModalPresented = false
     @State var isNewListModalPresented = false
@@ -34,19 +35,14 @@ struct BottomBar: View {
             Spacer()
             
             Button {
-                isNewListModalPresented.toggle()
+                homeNavigationValue = .addList
             } label: {
                 Text("Add List")
-            }
-            .sheet(isPresented: $isNewListModalPresented){
-                NavigationStack {
-                    NewListView()
-                }
             }
         }
     }
 }
 
 #Preview {
-    BottomBar()
+    BottomBar(homeNavigationValue: .constant(.addList))
 }
