@@ -31,7 +31,7 @@ enum NewReminderNavigationValues: View, Hashable, Identifiable {
     var body: some View {
         switch self {
         case .details:
-            Text("Details Screen")
+            NewReminderDetails()
 //        case .listType:
 //            Text("List Type")
         }
