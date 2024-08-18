@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HomeView: View {
     @Environment(\.editMode) private var editMode
     @EnvironmentObject var localNotificationManager: LocalNotificationManager
+    @Query(sort: \ReminderCategory.listNumber) private var reminderCategories: [ReminderCategory]
     @StateObject var homeViewModel: HomeViewModel = .init()
     
     
@@ -67,7 +69,7 @@ private extension HomeView {
     private var categories: some View {
         Section {
             if(isEditing){
-                ForEach(homeViewModel.reminderCategories){ reminderCategory in
+                ForEach(reminderCategories){ reminderCategory in
                     ListRowItem(item: reminderCategory)
                         .padding(1)
                 }
@@ -75,7 +77,7 @@ private extension HomeView {
                     print("Moving \(indices), \(newOffset)")
                 }
             } else {
-                CategoriesView(categories: homeViewModel.reminderCategories)
+                CategoriesView(categories: reminderCategories)
             }
         }
         .listRowInsets(isEditing ? nil : .init())
@@ -85,7 +87,7 @@ private extension HomeView {
     
     private var lists: some View {
         Section {
-            ForEach(homeViewModel.reminderlists) { reminderList in
+            ForEach(reminderlists) { reminderList in
                 //TODO: create a view modifier to do this efficiently...
                 if(!isEditing) {
                     NavigationLink(value: NavigationValues.lists(list: reminderList)){

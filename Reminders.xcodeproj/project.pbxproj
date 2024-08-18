@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		282153E02C71215700388B89 /* NewReminderDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282153DF2C71215700388B89 /* NewReminderDetails.swift */; };
+		282153E22C727A7500388B89 /* SeedCategories.json in Resources */ = {isa = PBXBuildFile; fileRef = 282153E12C727A7500388B89 /* SeedCategories.json */; };
+		282153E92C72839700388B89 /* ColorComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282153E82C72839700388B89 /* ColorComponents.swift */; };
+		282153EB2C72858800388B89 /* DevData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282153EA2C72858800388B89 /* DevData.swift */; };
 		282BBAC22BAF1F380091B827 /* RemindersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282BBAC12BAF1F380091B827 /* RemindersApp.swift */; };
 		282BBAC62BAF1F390091B827 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282BBAC52BAF1F390091B827 /* Assets.xcassets */; };
 		282BBAC92BAF1F390091B827 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282BBAC82BAF1F390091B827 /* Preview Assets.xcassets */; };
@@ -37,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		282153DF2C71215700388B89 /* NewReminderDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReminderDetails.swift; sourceTree = "<group>"; };
+		282153E12C727A7500388B89 /* SeedCategories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SeedCategories.json; sourceTree = "<group>"; };
+		282153E82C72839700388B89 /* ColorComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorComponents.swift; sourceTree = "<group>"; };
+		282153EA2C72858800388B89 /* DevData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevData.swift; sourceTree = "<group>"; };
 		282BBABE2BAF1F380091B827 /* Reminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reminders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		282BBAC12BAF1F380091B827 /* RemindersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersApp.swift; sourceTree = "<group>"; };
 		282BBAC52BAF1F390091B827 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,6 +119,7 @@
 				282BBAC12BAF1F380091B827 /* RemindersApp.swift */,
 				282BBAC52BAF1F390091B827 /* Assets.xcassets */,
 				282BBAC72BAF1F390091B827 /* Preview Content */,
+				282153E12C727A7500388B89 /* SeedCategories.json */,
 			);
 			path = Reminders;
 			sourceTree = "<group>";
@@ -121,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				282BBAC82BAF1F390091B827 /* Preview Assets.xcassets */,
+				282153EA2C72858800388B89 /* DevData.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -188,6 +196,7 @@
 			children = (
 				28D5F8932C317E6E00294939 /* Components */,
 				283D709F2BD4E456000B49E7 /* NextView.swift */,
+				282153E82C72839700388B89 /* ColorComponents.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -329,6 +338,7 @@
 			files = (
 				282BBAC92BAF1F390091B827 /* Preview Assets.xcassets in Resources */,
 				282BBAC62BAF1F390091B827 /* Assets.xcassets in Resources */,
+				282153E22C727A7500388B89 /* SeedCategories.json in Resources */,
 				283D709D2BD4E09D000B49E7 /* moonwalk.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,6 +355,7 @@
 				28EA81302C4D5C5B00E9CE25 /* HomeNavigationSheetValues.swift in Sources */,
 				28D5F8992C3191CC00294939 /* BottomBar.swift in Sources */,
 				286D5FF42C20B29900448187 /* HomeView.swift in Sources */,
+				282153E92C72839700388B89 /* ColorComponents.swift in Sources */,
 				283D70982BD38840000B49E7 /* ReminderCategoryDetails.swift in Sources */,
 				286D5FFD2C20C0D000448187 /* View+.swift in Sources */,
 				286D5FF92C20BCA700448187 /* ReminderList.swift in Sources */,
@@ -354,6 +365,7 @@
 				286D5FF72C20BC2800448187 /* NavigationValues.swift in Sources */,
 				286D60022C2356CF00448187 /* CategoriesView.swift in Sources */,
 				283D709B2BD38E52000B49E7 /* LocalNotification.swift in Sources */,
+				282153EB2C72858800388B89 /* DevData.swift in Sources */,
 				282153E02C71215700388B89 /* NewReminderDetails.swift in Sources */,
 				2836992D2BAF285200C95F04 /* ReminderCategory.swift in Sources */,
 				28D5F89D2C31966000294939 /* NewReminderNavigationValues.swift in Sources */,
@@ -503,7 +515,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -532,7 +544,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -16,7 +16,7 @@ struct RemindersCategoryView: View {
         VStack(alignment: .leading) {
             HStack {
                 Circle()
-                    .fill(reminderCategory.color)
+                    .fill(reminderCategory.color.color)
                     .frame(width: 35)
                     .overlay {
                         Image(systemName: reminderCategory.icon)
@@ -45,9 +45,10 @@ struct RemindersCategoryView: View {
     RemindersCategoryView(
         reminderCategory: ReminderCategory(
             title: "test",
-            color: Color.red,
+            color: ColorComponents.fromColor(.red),
             icon: "plus",
-            reminderCount: 30
+            reminderCount: 30,
+            listNumber: 0
         )
     )
 }

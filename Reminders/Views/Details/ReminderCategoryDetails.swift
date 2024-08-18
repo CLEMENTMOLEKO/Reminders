@@ -99,9 +99,10 @@ struct ReminderCategoryDetails: View {
     ReminderCategoryDetails(
         reminderCategory: .init(
             title: "Test",
-            color: Color.red,
+            color: ColorComponents.fromColor(.red),
             icon: "star",
-            reminderCount: 5
+            reminderCount: 5,
+            listNumber: 0
         )
     )
     .environmentObject(LocalNotificationManager())

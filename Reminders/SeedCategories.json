@@ -1,0 +1,40 @@
+//
+//  SeedCategories.json
+//  Reminders
+//
+//  Created by Clement Skosana on 2024/08/18.
+//
+
+import Foundation
+[
+    {
+      "title": "Today",
+      "color": "blue",
+      "icon": "calendar",
+      "reminderCount": 0
+    },
+    {
+      "title": "Scheduled",
+      "color": "red",
+      "icon": "calendar",
+      "reminderCount": 0
+    },
+    {
+      "title": "All",
+      "color": "gray",
+      "icon": "tray.fill",
+      "reminderCount": 0
+    },
+    {
+      "title": "Flagged",
+      "color": "indigo",
+      "icon": "flag",
+      "reminderCount": 0
+    },
+    {
+      "title": "Completed",
+      "color": "green",
+      "icon": "checkmark",
+      "reminderCount": 0
+    }
+]

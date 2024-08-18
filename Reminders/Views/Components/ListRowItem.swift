@@ -9,7 +9,7 @@ import SwiftUI
 
 protocol ListItem {
     var name: String { get }
-    var color: Color { get }
+    var color: ColorComponents { get }
     var icon: String { get }
 }
 
@@ -22,7 +22,7 @@ struct ListRowItem: View {
         } icon: {
                 Circle()
                     .frame(width: 35)
-                    .foregroundColor(item.color)
+                    .foregroundColor(item.color.color)
                     .overlay {
                         Image(systemName: item.icon)
                             .foregroundColor(.white)
@@ -33,6 +33,6 @@ struct ListRowItem: View {
 }
 
 #Preview {
-    ListRowItem(item: ReminderList(name: "Reminders", color: .blue, icon: "star.fill"))
+    ListRowItem(item: ReminderList(name: "Reminders", color: ColorComponents.fromColor(.blue), icon: "star.fill"))
         .previewLayout(.sizeThatFits)
 }

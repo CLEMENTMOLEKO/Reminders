@@ -13,12 +13,6 @@ struct NewReminderDetails: View {
     @State var isDateEnabled = false
     @State var isTimeEnabled = false
     
-    var dateFormatter: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long
-        return dateFormatter
-    }
-    
     var body: some View {
         Form {
             Section {
@@ -40,6 +34,7 @@ struct NewReminderDetails: View {
                     DatePicker("Date", selection: $date, displayedComponents: .date)
                         .labelsHidden()
                         .datePickerStyle(.graphical)
+                        .animation(.easeInOut, value: isDateEnabled)
                 }
                 Toggle(isOn: $isTimeEnabled){
                     Label {
@@ -55,6 +50,7 @@ struct NewReminderDetails: View {
                     DatePicker("Date", selection: $time, displayedComponents: .hourAndMinute)
                         .labelsHidden()
                         .datePickerStyle(.wheel)
+                        .animation(.easeInOut(duration: 2), value: isTimeEnabled)
                 }
             }
         }
