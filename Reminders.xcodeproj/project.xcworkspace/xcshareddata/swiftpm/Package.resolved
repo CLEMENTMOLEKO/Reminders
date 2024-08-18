@@ -1,0 +1,15 @@
+{
+  "originHash" : "45e8e47b37282dbf9c4d71995596476a51ddf6edec3d4a74171eeb8ca037400a",
+  "pins" : [
+    {
+      "identity" : "symbolpicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/xnth97/SymbolPicker.git",
+      "state" : {
+        "revision" : "f82b64bcc3d761c9e63aaa10b1912bba72cbf6d8",
+        "version" : "1.5.3"
+      }
+    }
+  ],
+  "version" : 3
+}

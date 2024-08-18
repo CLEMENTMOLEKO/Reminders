@@ -11,6 +11,7 @@
 		282153E22C727A7500388B89 /* SeedCategories.json in Resources */ = {isa = PBXBuildFile; fileRef = 282153E12C727A7500388B89 /* SeedCategories.json */; };
 		282153E92C72839700388B89 /* ColorComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282153E82C72839700388B89 /* ColorComponents.swift */; };
 		282153EB2C72858800388B89 /* DevData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282153EA2C72858800388B89 /* DevData.swift */; };
+		282153F12C728D2100388B89 /* SymbolPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 282153F02C728D2100388B89 /* SymbolPicker */; };
 		282BBAC22BAF1F380091B827 /* RemindersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282BBAC12BAF1F380091B827 /* RemindersApp.swift */; };
 		282BBAC62BAF1F390091B827 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282BBAC52BAF1F390091B827 /* Assets.xcassets */; };
 		282BBAC92BAF1F390091B827 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282BBAC82BAF1F390091B827 /* Preview Assets.xcassets */; };
@@ -76,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				282153F12C728D2100388B89 /* SymbolPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +296,9 @@
 			dependencies = (
 			);
 			name = Reminders;
+			packageProductDependencies = (
+				282153F02C728D2100388B89 /* SymbolPicker */,
+			);
 			productName = Reminders;
 			productReference = 282BBABE2BAF1F380091B827 /* Reminders.app */;
 			productType = "com.apple.product-type.application";
@@ -322,6 +327,9 @@
 				Base,
 			);
 			mainGroup = 282BBAB52BAF1F370091B827;
+			packageReferences = (
+				282153EF2C728D2100388B89 /* XCRemoteSwiftPackageReference "SymbolPicker" */,
+			);
 			productRefGroup = 282BBABF2BAF1F380091B827 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -580,6 +588,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		282153EF2C728D2100388B89 /* XCRemoteSwiftPackageReference "SymbolPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/xnth97/SymbolPicker.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		282153F02C728D2100388B89 /* SymbolPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 282153EF2C728D2100388B89 /* XCRemoteSwiftPackageReference "SymbolPicker" */;
+			productName = SymbolPicker;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 282BBAB62BAF1F370091B827 /* Project object */;
 }

@@ -51,6 +51,13 @@ extension RemindersApp {
         reminderCategories.forEach { reminderCategory in
             container.mainContext.insert(reminderCategory)
         }
+        container.mainContext.insert(
+            ReminderList(
+                name: "Reminder",
+                color: ColorComponents.fromColor(Color.blue),
+                icon: "list.bullet"
+            )
+        )
     }
 
 }

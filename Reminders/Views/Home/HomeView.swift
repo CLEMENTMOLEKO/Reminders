@@ -12,6 +12,7 @@ struct HomeView: View {
     @Environment(\.editMode) private var editMode
     @EnvironmentObject var localNotificationManager: LocalNotificationManager
     @Query(sort: \ReminderCategory.listNumber) private var reminderCategories: [ReminderCategory]
+    @Query(sort: \ReminderList.name) private var reminderLists: [ReminderList]
     @StateObject var homeViewModel: HomeViewModel = .init()
     
     
@@ -87,7 +88,7 @@ private extension HomeView {
     
     private var lists: some View {
         Section {
-            ForEach(reminderlists) { reminderList in
+            ForEach(reminderLists) { reminderList in
                 //TODO: create a view modifier to do this efficiently...
                 if(!isEditing) {
                     NavigationLink(value: NavigationValues.lists(list: reminderList)){
