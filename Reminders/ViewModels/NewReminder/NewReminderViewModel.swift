@@ -8,7 +8,8 @@
 import SwiftUI
 
 final class NewReminderViewModel: ObservableObject {
-    @Published var title = ""
-    @Published var notes = ""
-    @Published var listType = "Reminder"
+    @Published var title: String = ""
+    @Published var notes: String = ""
+    @Published var listType = 1
+    @Published var reminder: Reminder? = nil
 }

@@ -8,8 +8,8 @@
 import SwiftUI
 
 let reminderlists = [
-    ReminderList(name: "Reminder", color: ColorComponents.fromColor(Color.blue), icon: "star.fill"),
-    ReminderList(name: "Test", color: ColorComponents.fromColor(Color.green), icon: "star.fill"),
-    ReminderList(name: "Todos", color: ColorComponents.fromColor(Color.orange), icon: "star.fill"),
-    ReminderList(name: "Other", color: ColorComponents.fromColor(Color.purple), icon: "star.fill")
+    ReminderList(name: "Reminder", color: ColorComponents.fromColor(Color.blue), icon: "star.fill", reminders: []),
+    ReminderList(name: "Test", color: ColorComponents.fromColor(Color.green), icon: "star.fill", reminders: []),
+    ReminderList(name: "Todos", color: ColorComponents.fromColor(Color.orange), icon: "star.fill", reminders: []),
+    ReminderList(name: "Other", color: ColorComponents.fromColor(Color.purple), icon: "star.fill", reminders: [])
 ]

@@ -14,11 +14,14 @@ class ReminderList : Hashable, Identifiable, ListItem {
     var name: String
     var color: ColorComponents
     var icon: String
+    @Relationship(deleteRule: .cascade, inverse: \Reminder.list)
+    var reminders: [Reminder]
     
-    internal init(name: String, color: ColorComponents, icon: String) {
+    internal init(name: String, color: ColorComponents, icon: String, reminders: [Reminder]) {
         self.name = name
         self.color = color
         self.icon = icon
+        self.reminders = reminders
     }
     
     static func == (lhs: ReminderList, rhs: ReminderList) -> Bool {

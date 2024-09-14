@@ -25,6 +25,7 @@ struct ListRowItem: View {
                     .foregroundColor(item.color.color)
                     .overlay {
                         Image(systemName: item.icon)
+                            .font(.subheadline)
                             .foregroundColor(.white)
                     }
         }
@@ -33,6 +34,13 @@ struct ListRowItem: View {
 }
 
 #Preview {
-    ListRowItem(item: ReminderList(name: "Reminders", color: ColorComponents.fromColor(.blue), icon: "star.fill"))
-        .previewLayout(.sizeThatFits)
+    ListRowItem(
+        item: ReminderList(
+            name: "Reminders",
+            color: ColorComponents.fromColor(.blue),
+            icon: "star.fill",
+            reminders: []
+        )
+    )
+    .previewLayout(.sizeThatFits)
 }

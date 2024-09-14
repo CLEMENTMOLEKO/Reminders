@@ -45,7 +45,7 @@ struct NewListView: View {
         .navigationTitle("New List")
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $isSymbolPickerPresented) {
-            //TODO: wrap this in a view incase it's used in other places.
+            //TODO: wrap this in a view incase it's used in other places. to later easily switch packages.
             SymbolPicker(symbol: $listSymbol)
         }
         .toolbar {
@@ -67,8 +67,12 @@ struct NewListView: View {
             
             ToolbarItem(placement: .confirmationAction) {
                 Button("Done") {
-                    //TODO: user context to insert or save in SwifData.
-                    let list = ReminderList(name: listName, color: ColorComponents.fromColor(listColor), icon: listSymbol)
+                    let list = ReminderList(
+                        name: listName,
+                        color: ColorComponents.fromColor(listColor),
+                        icon: listSymbol,
+                        reminders: []
+                    )
                     context.insert(list)
                     dismiss()
                 }
@@ -87,7 +91,7 @@ extension NewListView {
                     .fill(listColor.opacity(0.8)) //TODO: this will be a random color.
                     .frame(width: 85)
                     .overlay {
-                        Image(systemName: "list.bullet")
+                        Image(systemName: listSymbol)
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .foregroundStyle(.white)
@@ -118,10 +122,9 @@ extension NewListView {
                 Label {
                     Text("List Type")
                 } icon: {
-                    Image(systemName: "list.bullet")
+                    Image(systemName: listSymbol)
                         .foregroundStyle(.white)
-                        .padding(.horizontal,3)
-                        .padding(.vertical, 6)
+                        .frame(width: 35, height: 35)
                         .background(listColor, in: RoundedRectangle(cornerRadius: 5))
                 }
             }

@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct NewReminderView: View {
+    @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
     @StateObject private var viewModel: NewReminderViewModel = .init()
+    @Query(sort: \ReminderList.name) private var reminderListsPicker: [ReminderList]
     
     var body: some View {
         Form {
@@ -26,20 +29,22 @@ struct NewReminderView: View {
             }
             
             Section {
+                // TODO: this is causing an error. how can we have either default list type or a list type in appstorage to be selected by default.
                 Picker(selection: $viewModel.listType) {
-                    ForEach(reminderlists, id: \.name) { item in
-                        Text(item.name)
-                            .tag(item.name)
+                    ForEach(reminderListsPicker) { item in
+                        Text(item.name).tag(item.id)
                     }
                 } label: {
                     Label {
                         Text("List")
                     } icon: {
-                        Image(systemName: "list.bullet")
-                            .foregroundStyle(.white)
-                            .padding(.horizontal,3)
-                            .padding(.vertical, 6)
-                            .background(.orange, in: RoundedRectangle(cornerRadius: 5))
+                        if let item = reminderListsPicker.first {
+                            Image(systemName: item.icon)
+                                .foregroundStyle(.white)
+                                .padding(.horizontal,3)
+                                .padding(.vertical, 6)
+                                .background(item.color.color, in: RoundedRectangle(cornerRadius: 5))
+                        }
                     }
                 }
                 .pickerStyle(.navigationLink)

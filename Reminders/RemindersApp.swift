@@ -36,7 +36,7 @@ extension RemindersApp {
         let schema = Schema([ReminderCategory.self, ReminderList.self])
         let config = ModelConfiguration("Reminders", schema: schema)
         do {
-            try container = ModelContainer(for: schema, configurations: config)
+            container = try ModelContainer(for: schema, configurations: config)
         } catch {
             fatalError("Error initializing the DB")
         }
@@ -51,13 +51,17 @@ extension RemindersApp {
         reminderCategories.forEach { reminderCategory in
             container.mainContext.insert(reminderCategory)
         }
+        seedReminderList()
+    }
+
+    private func seedReminderList() {
         container.mainContext.insert(
             ReminderList(
                 name: "Reminder",
                 color: ColorComponents.fromColor(Color.blue),
-                icon: "list.bullet"
+                icon: "list.bullet",
+                reminders: []
             )
         )
     }
-
 }
