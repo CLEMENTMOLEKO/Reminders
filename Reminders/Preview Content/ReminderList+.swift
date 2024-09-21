@@ -13,3 +13,7 @@ let reminderlists = [
     ReminderList(name: "Todos", color: ColorComponents.fromColor(Color.orange), icon: "star.fill", reminders: []),
     ReminderList(name: "Other", color: ColorComponents.fromColor(Color.purple), icon: "star.fill", reminders: [])
 ]
+
+extension ReminderList {
+    static var examples: [ReminderList] { reminderlists }
+}

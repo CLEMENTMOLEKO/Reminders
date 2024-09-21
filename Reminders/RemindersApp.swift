@@ -48,7 +48,7 @@ extension RemindersApp {
         guard !launchedBefore else { return }
         
         UserDefaults.standard.set(true, forKey: "launchedBefore")
-        reminderCategories.forEach { reminderCategory in
+        ReminderCategory.examples.forEach { reminderCategory in
             container.mainContext.insert(reminderCategory)
         }
         seedReminderList()

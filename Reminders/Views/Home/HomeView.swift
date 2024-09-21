@@ -119,10 +119,14 @@ private extension HomeView {
 }
 
 #Preview {
+    let preview = Preview(ReminderList.self, ReminderCategory.self)
+    preview.addExamples(examples: ReminderList.examples)
+    preview.addExamples(examples: ReminderCategory.examples)
     let navigationManager = NavigationManager()
     return HomeView()
         //.navigationStackWithDestination(for: NavigationValues.self, path: $navigationManager.navigationRoutes)
         .environmentObject(navigationManager)
         .environmentObject(LocalNotificationManager())
+        .modelContainer(preview.container)
     //.preferredColorScheme(.dark)
 }
