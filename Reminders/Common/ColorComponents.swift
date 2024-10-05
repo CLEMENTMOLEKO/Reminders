@@ -13,7 +13,11 @@ struct ColorComponents: Codable {
     let blue: Float
 
     var color: Color {
-        Color(red: Double(red), green: Double(green), blue: Double(blue))
+        Color(
+            red: Double(red),
+            green: Double(green),
+            blue: Double(blue)
+        )
     }
 
     static func fromColor(_ color: Color) -> ColorComponents {

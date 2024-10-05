@@ -11,35 +11,35 @@ extension ReminderCategory {
     static var examples: [ReminderCategory] {
        [
             ReminderCategory(
-                title: "Today",
+                name: "Today",
                 color: ColorComponents.fromColor(.blue),
                 icon: "calendar",
                 reminderCount: 0,
                 listNumber: 0
             ),
             ReminderCategory(
-                title: "Scheduled",
+                name: "Scheduled",
                 color: ColorComponents.fromColor(.red),
                 icon: "calendar",
                 reminderCount: 0,
                 listNumber: 1
             ),
             ReminderCategory(
-                title: "All",
+                name: "All",
                 color: ColorComponents.fromColor(.gray),
                 icon: "tray.fill",
                 reminderCount: 0,
                 listNumber: 2
             ),
             ReminderCategory(
-                title: "Flagged",
+                name: "Flagged",
                 color: ColorComponents.fromColor(.indigo),
                 icon: "flag",
                 reminderCount: 0,
                 listNumber: 3
             ),
             ReminderCategory(
-                title: "Completed",
+                name: "Completed",
                 color: ColorComponents.fromColor(.green),
                 icon: "checkmark",
                 reminderCount: 0,

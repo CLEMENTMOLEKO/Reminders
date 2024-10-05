@@ -1,40 +1,62 @@
-//
-//  SeedCategories.json
-//  Reminders
-//
-//  Created by Clement Skosana on 2024/08/18.
-//
-
-import Foundation
 [
     {
-      "title": "Today",
-      "color": "blue",
-      "icon": "calendar",
-      "reminderCount": 0
+        "id": "3FD8725D-FBE0-41B2-A78D-7BFC8231A161",
+        "name": "Today",
+        "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 1
+        },
+        "icon": "calendar",
+        "reminderCount": 0,
+        "listNumber": 20
     },
     {
-      "title": "Scheduled",
-      "color": "red",
-      "icon": "calendar",
-      "reminderCount": 0
+        "id": "3FD8725D-FBE0-41B2-A78D-7BFC8231A162",
+        "name": "Scheduled",
+        "color": {
+            "red": 1,
+            "green": 0,
+            "blue": 0
+        },
+        "icon": "calendar",
+        "reminderCount": 0,
+        "listNumber": 40
     },
     {
-      "title": "All",
-      "color": "gray",
-      "icon": "tray.fill",
-      "reminderCount": 0
+        "id": "3FD8725D-FBE0-41B2-A78D-7BFC8231A163",
+        "name": "All",
+        "color": {
+            "red": 0.5019608,
+            "green": 0.5019608,
+            "blue": 0.5019608
+        },
+        "icon": "calendar",
+        "reminderCount": 0,
+        "listNumber": 10
     },
     {
-      "title": "Flagged",
-      "color": "indigo",
-      "icon": "flag",
-      "reminderCount": 0
+        "id": "3FD8725D-FBE0-41B2-A78D-7BFC8231A164",
+        "name": "Flagged",
+        "color": {
+            "red": 0.2941176,
+            "green": 0,
+            "blue": 0.509804
+        },
+        "icon": "flag",
+        "reminderCount": 0,
+        "listNumber": 20
     },
     {
-      "title": "Completed",
-      "color": "green",
-      "icon": "checkmark",
-      "reminderCount": 0
+        "id": "3FD8725D-FBE0-41B2-A78D-7BFC8231A165",
+        "name": "Completed",
+        "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 1
+        },
+        "icon": "checkmark",
+        "reminderCount": 0,
+        "listNumber": 100
     }
 ]

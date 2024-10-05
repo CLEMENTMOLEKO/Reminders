@@ -48,10 +48,28 @@ extension RemindersApp {
         guard !launchedBefore else { return }
         
         UserDefaults.standard.set(true, forKey: "launchedBefore")
-        ReminderCategory.examples.forEach { reminderCategory in
+        
+        getSeedCategories().forEach { reminderCategory in
             container.mainContext.insert(reminderCategory)
         }
         seedReminderList()
+    }
+    
+    private func getSeedCategories() -> [ReminderCategory] {
+        guard let url = Bundle.main.url(forResource: "SeedCategories", withExtension: "json") else {
+            fatalError("SeedCategories JSON file not found")
+        }
+        guard let data = try? Data(contentsOf: url) else {
+            fatalError("SeedCategories JSON file could not be read")
+        }
+        
+        do {
+            let decoder = JSONDecoder()
+            let codableReminderCategories = try decoder.decode([CodableReminderCategory].self, from: data)
+            return codableReminderCategories.map { $0.toModel()};
+        } catch {
+            fatalError("Error decoding SeedCategories JSON file: \(error)")
+        }
     }
 
     private func seedReminderList() {

@@ -98,7 +98,7 @@ struct ReminderCategoryDetails: View {
 #Preview {
     ReminderCategoryDetails(
         reminderCategory: .init(
-            title: "Test",
+            name: "Test",
             color: ColorComponents.fromColor(.red),
             icon: "star",
             reminderCount: 5,

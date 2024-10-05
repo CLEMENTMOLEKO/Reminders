@@ -65,6 +65,12 @@ struct HomeView: View {
     }
 }
 
+struct HomeViewSubView: View {
+    var body: some View {
+        HomeView()
+    }
+}
+
 //MARK: HOMEVIEW COMPONENTS
 private extension HomeView {
     private var categories: some View {

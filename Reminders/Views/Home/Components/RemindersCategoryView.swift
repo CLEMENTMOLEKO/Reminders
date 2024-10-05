@@ -44,7 +44,7 @@ struct RemindersCategoryView: View {
 #Preview {
     RemindersCategoryView(
         reminderCategory: ReminderCategory(
-            title: "test",
+            name: "test",
             color: ColorComponents.fromColor(.red),
             icon: "plus",
             reminderCount: 30,

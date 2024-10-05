@@ -11,7 +11,7 @@ import SwiftData
 @Model
 class Tag {
     @Attribute(.unique)
-    let name: String
+    var name: String
     
     init(name: String) {
         self.name = name
