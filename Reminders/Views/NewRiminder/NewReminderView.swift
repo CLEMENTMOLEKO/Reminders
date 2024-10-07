@@ -29,7 +29,7 @@ struct NewReminderView: View {
             }
             
             Section {
-                Picker(selection: $viewModel.reminderName) {
+                Picker(selection: $viewModel.reminderListName) {
                     ForEach(reminderListsPicker) { item in
                         Text(item.name).tag(item.name)
                     }
