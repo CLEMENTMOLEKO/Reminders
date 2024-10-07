@@ -29,10 +29,9 @@ struct NewReminderView: View {
             }
             
             Section {
-                // TODO: this is causing an error. how can we have either default list type or a list type in appstorage to be selected by default.
-                Picker(selection: $viewModel.listType) {
+                Picker(selection: $viewModel.reminderName) {
                     ForEach(reminderListsPicker) { item in
-                        Text(item.name).tag(item.id)
+                        Text(item.name).tag(item.name)
                     }
                 } label: {
                     Label {

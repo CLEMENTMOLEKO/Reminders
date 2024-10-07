@@ -75,7 +75,7 @@ extension RemindersApp {
     private func seedReminderList() {
         container.mainContext.insert(
             ReminderList(
-                name: "Reminder",
+                name: Constants.defaultReminderName,
                 color: ColorComponents.fromColor(Color.blue),
                 icon: "list.bullet",
                 reminders: []

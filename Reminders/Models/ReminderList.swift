@@ -10,7 +10,7 @@ import SwiftData
 
 @Model
 class ReminderList : Hashable, Identifiable, ListItem {
-    var id = UUID()
+    @Attribute(.unique)
     var name: String
     var color: ColorComponents
     var icon: String

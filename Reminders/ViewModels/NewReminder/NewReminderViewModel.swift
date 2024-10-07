@@ -10,6 +10,6 @@ import SwiftUI
 final class NewReminderViewModel: ObservableObject {
     @Published var title: String = ""
     @Published var notes: String = ""
-    @Published var listType = 1
+    @Published var reminderName = Constants.defaultReminderName
     @Published var reminder: Reminder? = nil
 }
