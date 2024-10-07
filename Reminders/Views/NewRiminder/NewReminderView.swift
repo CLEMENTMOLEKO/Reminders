@@ -12,7 +12,7 @@ struct NewReminderView: View {
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
     @StateObject private var viewModel: NewReminderViewModel = .init()
-    @Query(sort: \ReminderList.name) private var reminderListsPicker: [ReminderList]
+    @Query(sort: \ReminderList.name) private var reminderLists: [ReminderList]
     
     var body: some View {
         Form {
@@ -30,21 +30,25 @@ struct NewReminderView: View {
             
             Section {
                 Picker(selection: $viewModel.reminderListName) {
-                    ForEach(reminderListsPicker) { item in
+                    ForEach(reminderLists) { item in
                         Text(item.name).tag(item.name)
                     }
                 } label: {
-                    Label {
-                        Text("List")
-                    } icon: {
-                        if let item = reminderListsPicker.first {
+                    if let item = reminderLists.first(where: {
+                        $0.name == viewModel.reminderListName
+                    }) {
+                        Label {
+                            Text(item.name)
+                        } icon: {
                             Image(systemName: item.icon)
                                 .foregroundStyle(.white)
                                 .padding(.horizontal,3)
                                 .padding(.vertical, 6)
                                 .background(item.color.color, in: RoundedRectangle(cornerRadius: 5))
+                            
                         }
                     }
+                    
                 }
                 .pickerStyle(.navigationLink)
             }

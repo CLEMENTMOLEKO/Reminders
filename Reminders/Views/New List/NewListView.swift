@@ -37,7 +37,7 @@ struct NewListView: View {
                     }
 
                 } label: {
-                    Text("List Type")
+                    Text("List Type Icon")
                 }
 
             }
