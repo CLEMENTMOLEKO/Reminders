@@ -13,6 +13,7 @@ struct HomeView: View {
     @EnvironmentObject var localNotificationManager: LocalNotificationManager
     @Query(sort: \ReminderCategory.listNumber) private var reminderCategories: [ReminderCategory]
     @Query(sort: \ReminderList.name) private var reminderLists: [ReminderList]
+    @Query() private var tags: [Tag]
     @StateObject var homeViewModel: HomeViewModel = .init()
     
     
@@ -22,38 +23,17 @@ struct HomeView: View {
     
     var body: some View {
         List(selection: $homeViewModel.selectionItems) {
-            categories
-            lists
+            categoriesSection
+            listsSection
+            if !tags.isEmpty {
+                tagsSection
+            }
         }
         .sheet(item: $homeViewModel.homeNavigationSheetValues){$0}
         .searchable(text: .constant(""))
         .toolbar {
             ToolbarItemGroup(placement: isEditing ? .primaryAction : .secondaryAction) {
-                Button {
-                    withAnimation() {
-                       if editMode?.wrappedValue == .active {
-                           editMode?.wrappedValue = .inactive
-                       } else {
-                           editMode?.wrappedValue = .active
-                       }
-                    }
-                } label : {
-                    if isEditing {
-                       Text("Done")
-                    } else {
-                       LabeledContent("Edit Lists") {
-                           Image(systemName: "pencil")
-                       }
-                    }
-                }
-                
-                Group {
-                    if !isEditing {
-                        Button("Templates") {
-                            homeViewModel.homeNavigationSheetValues = .templates
-                        }
-                    }
-                }
+                toolbarItems
             }
             ToolbarItem(placement: .bottomBar) {
                 BottomBar(homeNavigationValue: $homeViewModel.homeNavigationSheetValues)
@@ -73,7 +53,7 @@ struct HomeViewSubView: View {
 
 //MARK: HOMEVIEW COMPONENTS
 private extension HomeView {
-    private var categories: some View {
+    private var categoriesSection: some View {
         Section {
             if(isEditing){
                 ForEach(reminderCategories){ reminderCategory in
@@ -92,7 +72,7 @@ private extension HomeView {
         .listRowBackground(isEditing ? nil : Color.clear)
     }
     
-    private var lists: some View {
+    private var listsSection: some View {
         Section {
             ForEach(reminderLists) { reminderList in
                 //TODO: create a view modifier to do this efficiently...
@@ -121,6 +101,51 @@ private extension HomeView {
         }
         .headerProminence(.increased)
         .listStyle(.grouped)
+    }
+    
+    private var tagsSection: some View {
+        Section {
+            ScrollView {
+                HStack {
+                    ForEach(tags) { tag in
+                        RoundedRectangle(cornerRadius: 10)
+                            .overlay {
+                                Text(tag.name)
+                                    .fontWeight(.semibold)
+                            }
+                    }
+                }
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private var toolbarItems: some View {
+        Button {
+            withAnimation() {
+                if editMode?.wrappedValue == .active {
+                    editMode?.wrappedValue = .inactive
+                } else {
+                    editMode?.wrappedValue = .active
+                }
+            }
+        } label : {
+            if isEditing {
+                Text("Done")
+            } else {
+                LabeledContent("Edit Lists") {
+                    Image(systemName: "pencil")
+                }
+            }
+        }
+        
+        Group {
+            if !isEditing {
+                Button("Templates") {
+                    homeViewModel.homeNavigationSheetValues = .templates
+                }
+            }
+        }
     }
 }
 
