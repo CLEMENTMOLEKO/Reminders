@@ -9,16 +9,19 @@ import SwiftUI
 import SwiftData
 
 struct NewReminderDetails: View {
+    //TODO: Take values to a view model
     @State var date: Date = Date.distantPast
     @State var time: Date = Date.distantPast
     @State var isDateEnabled = false
     @State var isTimeEnabled = false
+    @State var isLocationEnabled = false
     @Query var selectedReminder: [Tag]
     
     var body: some View {
         Form {
             dateSection
             tagsSection
+            locationSection
         }
     }
     
@@ -28,7 +31,7 @@ struct NewReminderDetails: View {
                 labelRow(
                     title: "Date",
                     icon: "calendar",
-                    backgroundColor: Color.red.opacity(0.8),
+                    backgroundColor: .red.opacity(0.8),
                     subtitle: date.formatted(
                         date: .complete,
                         time: .omitted
@@ -44,7 +47,7 @@ struct NewReminderDetails: View {
                 labelRow(
                     title: "Time",
                     icon: "clock.fill",
-                    backgroundColor: Color.red.opacity(0.8)
+                    backgroundColor: .blue
                 )
             }
             if isTimeEnabled {
@@ -59,8 +62,27 @@ struct NewReminderDetails: View {
     private var tagsSection: some View {
         Section {
             NavigationLink(value: "Tag") {
-                labelRow(title: "Tags", icon: "number", backgroundColor: Color.gray)
+                labelRow(title: "Tags", icon: "number", backgroundColor: .gray)
             }
+        }
+    }
+    
+    private var locationSection: some View {
+        Section {
+            Toggle(isOn: $isLocationEnabled) {
+                labelRow(title: "Location", icon: "location.fill", backgroundColor: .blue)
+            }
+            
+            if isLocationEnabled {
+                HStack {
+                    ForEach(LocationMode.allCases) { mode in
+                        locationItem(locationMode: mode)
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                Text("Add location value")
+            }
+            
         }
     }
     
@@ -83,6 +105,60 @@ struct NewReminderDetails: View {
                 .padding(6)
                 .background(backgroundColor, in: RoundedRectangle(cornerRadius: 5))
                 .foregroundStyle(.white)
+        }
+    }
+    
+    private func locationItem(
+        locationMode: LocationMode
+    ) -> some View {
+        VStack {
+            Circle()
+                .fill(locationMode.color)
+                .frame(width: 60, height: 60)
+                .overlay {
+                    Image(systemName: locationMode.systemImage)
+                        .font(.title2)
+                        .foregroundStyle(.white)
+                }
+            Text(locationMode.text)
+                .font(.subheadline)
+        }
+    }
+    
+    enum LocationMode: String, CaseIterable, Identifiable {
+        case current, gettingIn, gettingOut, custom
+       
+        var id: Self { self }
+        
+        var systemImage: String {
+            switch self {
+            case .current:
+                return "location.fill"
+            case .gettingIn,.gettingOut:
+                return "car.fill"
+            case .custom:
+                return "ellipsis"
+            }
+        }
+        
+        var text: String {
+            switch self {
+            case .current, .custom:
+                return self.rawValue.capitalized
+            case .gettingIn:
+                return "Getting in"
+            case .gettingOut:
+                return "Getting out"
+            }
+        }
+        
+        var color: Color {
+            switch self {
+            case .current, .custom:
+                return .gray.opacity(0.7)
+            case .gettingIn,.gettingOut:
+                return .blue.opacity(0.8)
+            }
         }
     }
 }
