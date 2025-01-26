@@ -104,7 +104,7 @@ private extension HomeView {
     }
     
     private var tagsSection: some View {
-        Section {
+        Section("Tags", isExpanded: .constant(true)) {
             ScrollView {
                 HStack {
                     ForEach(tags) { tag in

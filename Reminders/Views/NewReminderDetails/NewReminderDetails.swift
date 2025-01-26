@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import ContactsUI
 
 struct NewReminderDetails: View {
     //TODO: Take values to a view model
@@ -15,6 +16,8 @@ struct NewReminderDetails: View {
     @State var isDateEnabled = false
     @State var isTimeEnabled = false
     @State var isLocationEnabled = false
+    @State var isWhenMessagingEnabled = false
+    @State var searchContactText: String = ""
     @Query var selectedReminder: [Tag]
     
     var body: some View {
@@ -22,6 +25,7 @@ struct NewReminderDetails: View {
             dateSection
             tagsSection
             locationSection
+            whenMessagingSection
         }
     }
     
@@ -81,6 +85,22 @@ struct NewReminderDetails: View {
                 }
                 .frame(maxWidth: .infinity)
                 Text("Add location value")
+            }
+            
+        }
+        .animation(.spring, value: isLocationEnabled)
+    }
+    
+    private var whenMessagingSection: some View {
+        Section {
+            Toggle(isOn: $isWhenMessagingEnabled) {
+                labelRow(title: "When messaging", icon: "message.fill", backgroundColor: .green)
+            }
+            
+            if isWhenMessagingEnabled {
+                Button("Choose a person") {
+                    //TODO: show contact list.
+                }
             }
             
         }
